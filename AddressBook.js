@@ -1,9 +1,9 @@
-// create an array to hold the contacts
+// create an array to hold the contacts UC1
 let addressBook = [];
 
 // create a constructor function to create contact objects
 function Contact(firstName, lastName, address, city, state, zip, phone, email) {
-  // validate the inputs
+  // validate the inputs UC2
   if (!/^[A-Z][a-z]{2,}$/.test(firstName)) {
     throw new Error("Invalid first name. Must start with capital letter and have at least 3 characters.");
   }
@@ -40,7 +40,7 @@ function Contact(firstName, lastName, address, city, state, zip, phone, email) {
   this.email = email;
 }
 
-// create a new empty address book
+// create a new empty address book UC3
 //let newAddressBook = [];
 
 // add some sample contacts to the address book
@@ -52,14 +52,14 @@ try {
 }
 
 
-// // add a new contact to the new address book
+// // add a new contact to the new address book UC3
 // try {
 //     newAddressBook.push(new Contact("Garv", "Patil", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "garv_24@gmail.com"));
 //   } catch (error) {
 //     console.log(error.message);
 //   }
 
-// function to find a contact by first and last name and return its index in the address book array
+// function to find a contact by first and last name and return its index in the address book array UC4
 function findContactIndex(firstName, lastName) {
     for (let i = 0; i < addressBook.length; i++) {
       if (addressBook[i].firstName === firstName && addressBook[i].lastName === lastName) {
@@ -85,7 +85,7 @@ function findContactIndex(firstName, lastName) {
   }
   
 // example usage of the findContactIndex() and updateContact() functions
-// find the index of a contact by first and last name
+// find the index of a contact by first and last name 
 let index = findContactIndex("Gaurav", "Patil");
 
 // update the contact's information
@@ -93,6 +93,23 @@ updateContact("Gaurav", "Patil", "Anandvan", "Bhopal", "MP", "452016", "99939052
 
 // display the updated contact's information
 console.log(addressBook[index]);
+
+
+// find the index of the contact to delete UC5
+function deleteContact(firstName, lastName) {
+
+    let index = findContactIndex(firstName, lastName);
+    
+    // if the contact is found, remove it from the address book array
+    if (index !== -1) {
+      addressBook.splice(index, 1);
+      console.log(`Contact ${firstName} ${lastName} has been deleted.`);
+    } else {
+      console.log(`Contact ${firstName} ${lastName} not found.`);
+    }
+  }
+  
+  deleteContact("Gaurav", "Patil");
 
 // display the contents of the new address book
 for (let i = 0; i < addressBook.length; i++) {
