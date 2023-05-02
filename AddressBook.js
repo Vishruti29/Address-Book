@@ -16,7 +16,7 @@ class Contact {
 }
 
 // add some sample contacts to the address book
-addressBook.push(new Contact("Vish", "Patil", "D 207", "Pune", "MH", "425506", "7067181622", "vishu9673@hmail.com"));
+addressBook.push(new Contact("Vishruti", "Patil", "D 207", "Pune", "MH", "425506", "7067181622", "vishu9673@hmail.com"));
 addressBook.push(new Contact("Gaurav", "Patil", "Anandvan", "Indore", "MP", "452016", "9993905250", "patilgaurav.23@gmail.com"));
 
 // display the contents of the address book
