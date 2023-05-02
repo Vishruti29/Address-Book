@@ -41,7 +41,7 @@ function Contact(firstName, lastName, address, city, state, zip, phone, email) {
 }
 
 // create a new empty address book
-let newAddressBook = [];
+//let newAddressBook = [];
 
 // add some sample contacts to the address book
 try {
@@ -52,21 +52,56 @@ try {
 }
 
 
-// add a new contact to the new address book
-try {
-    newAddressBook.push(new Contact("Garv", "Patil", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "garv_24@gmail.com"));
-  } catch (error) {
-    console.log(error.message);
+// // add a new contact to the new address book
+// try {
+//     newAddressBook.push(new Contact("Garv", "Patil", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "garv_24@gmail.com"));
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+
+// function to find a contact by first and last name and return its index in the address book array
+function findContactIndex(firstName, lastName) {
+    for (let i = 0; i < addressBook.length; i++) {
+      if (addressBook[i].firstName === firstName && addressBook[i].lastName === lastName) {
+        return i;
+      }
+    }
+    return -1;
   }
 
+  // function to update an existing contact's information
+  function updateContact(firstName, lastName, address, city, state, zip, phone, email) {
+    let index = findContactIndex(firstName, lastName);
+    if (index === -1) {
+      console.log("Contact not found.");
+      return;
+    }
+    try {
+      addressBook[index] = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+      console.log("Contact updated.");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  
+// example usage of the findContactIndex() and updateContact() functions
+// find the index of a contact by first and last name
+let index = findContactIndex("Gaurav", "Patil");
+
+// update the contact's information
+updateContact("Gaurav", "Patil", "Anandvan", "Bhopal", "MP", "452016", "9993905250", "patilgaurav.23@gmail.com");
+
+// display the updated contact's information
+console.log(addressBook[index]);
+
 // display the contents of the new address book
-for (let i = 0; i < newAddressBook.length; i++) {
-    console.log(`Name: ${newAddressBook[i].firstName} ${newAddressBook[i].lastName}`);
-    console.log(`Address: ${newAddressBook[i].address}`);
-    console.log(`City: ${newAddressBook[i].city}`);
-    console.log(`State: ${newAddressBook[i].state}`);
-    console.log(`ZIP: ${newAddressBook[i].zip}`);
-    console.log(`Phone: ${newAddressBook[i].phone}`);
-    console.log(`Email: ${newAddressBook[i].email}`);
+for (let i = 0; i < addressBook.length; i++) {
+    console.log(`Name: ${addressBook[i].firstName} ${addressBook[i].lastName}`);
+    console.log(`Address: ${addressBook[i].address}`);
+    console.log(`City: ${addressBook[i].city}`);
+    console.log(`State: ${addressBook[i].state}`);
+    console.log(`ZIP: ${addressBook[i].zip}`);
+    console.log(`Phone: ${addressBook[i].phone}`);
+    console.log(`Email: ${addressBook[i].email}`);
     console.log("------------------------------");
     }
