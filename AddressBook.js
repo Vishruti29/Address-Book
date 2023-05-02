@@ -40,6 +40,9 @@ function Contact(firstName, lastName, address, city, state, zip, phone, email) {
   this.email = email;
 }
 
+// create a new empty address book
+let newAddressBook = [];
+
 // add some sample contacts to the address book
 try {
     addressBook.push(new Contact("Vishruti", "Patil", "D 207", "Pune", "MH", "425506", "7067181622", "vishu9673@hmail.com"));
@@ -48,14 +51,22 @@ try {
   console.log(error.message);
 }
 
-// display the contents of the address book
-for (let i = 0; i < addressBook.length; i++) {
-  console.log(`Name: ${addressBook[i].firstName} ${addressBook[i].lastName}`);
-  console.log(`Address: ${addressBook[i].address}`);
-  console.log(`City: ${addressBook[i].city}`);
-  console.log(`State: ${addressBook[i].state}`);
-  console.log(`ZIP: ${addressBook[i].zip}`);
-  console.log(`Phone: ${addressBook[i].phone}`);
-  console.log(`Email: ${addressBook[i].email}`);
-  console.log("");
-}
+
+// add a new contact to the new address book
+try {
+    newAddressBook.push(new Contact("Garv", "Patil", "Sch 140", "Mumbai", "MH", "400001", "7350985660", "garv_24@gmail.com"));
+  } catch (error) {
+    console.log(error.message);
+  }
+
+// display the contents of the new address book
+for (let i = 0; i < newAddressBook.length; i++) {
+    console.log(`Name: ${newAddressBook[i].firstName} ${newAddressBook[i].lastName}`);
+    console.log(`Address: ${newAddressBook[i].address}`);
+    console.log(`City: ${newAddressBook[i].city}`);
+    console.log(`State: ${newAddressBook[i].state}`);
+    console.log(`ZIP: ${newAddressBook[i].zip}`);
+    console.log(`Phone: ${newAddressBook[i].phone}`);
+    console.log(`Email: ${newAddressBook[i].email}`);
+    console.log("------------------------------");
+    }
