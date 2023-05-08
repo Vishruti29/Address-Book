@@ -122,3 +122,12 @@ for (let i = 0; i < addressBook.length; i++) {
     console.log(`Email: ${addressBook[i].email}`);
     console.log("------------------------------");
     }
+
+    function countContacts() {
+      let count = addressBook.reduce(function(acc, curr) {
+        return acc + 1;
+      }, 0);
+      console.log(`There are ${count} contacts in the address book.`);
+    }  
+    countContacts();
+  
